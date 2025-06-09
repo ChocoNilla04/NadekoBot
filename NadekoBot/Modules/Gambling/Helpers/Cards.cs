@@ -144,7 +144,7 @@ namespace NadekoBot.Modules.Gambling.Helpers
         {
             if (cardPool.Count <= 1) return;
             var orderedPool = cardPool.OrderBy(x => r.Next());
-            cardPool = cardPool as List<Card> ?? orderedPool.ToList();
+            cardPool = orderedPool.ToList();
         }
         public override string ToString() => string.Join("", cardPool.Select(c => c.ToString())) + Environment.NewLine;
 

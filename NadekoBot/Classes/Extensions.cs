@@ -43,10 +43,10 @@ namespace NadekoBot.Extensions
                 throw new ArgumentOutOfRangeException(nameof(num), "TrimTo argument cannot be less than 0");
             if (num == 0)
                 return string.Empty;
-            if (num <= 3)
-                return string.Join("", str.Select(c => '.'));
-            if (str.Length < num)
+            if (str.Length <= num)
                 return str;
+            if (num <= 3)
+                return new string('.', num);
             return string.Join("", str.Take(num - 3)) + (hideDots ? "" : "...");
         }
         /// <summary>
